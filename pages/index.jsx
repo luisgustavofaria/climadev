@@ -1,13 +1,17 @@
 import styled from "styled-components"
 
+import BackgroundImageWithChildren from "../src/components/layout/backgroundImageWithChildren/BackgroundImageWithChildren"
+
 const StyledDiv = styled.div`
 	background-color: red;
 `
 
 export default function HomePage(){
 	return (
-		<StyledDiv>
-			Pagina Inical 
-		</StyledDiv>
+		<BackgroundImageWithChildren>
+			<StyledDiv>
+				Pagina Inicial 
+			</StyledDiv>
+		</BackgroundImageWithChildren>
     )
 }
