@@ -6,7 +6,7 @@ const StyledFlex = styled.div`
 
 
 const StyledImage = styled.div`
-    background-image: url('/background.png');
+    background-image: url('${props => props.image}');
     width: 100%; //necessário colocar tamanho da imagem para set
     min-height: 100vh; //necessário colocar tamanho da imagem para set
     background-repeat: no-repeat;
@@ -14,11 +14,11 @@ const StyledImage = styled.div`
     background-size: cover;
 `
 
-function BackgroundImageWithChildren({children}) {
+function BackgroundImageWithChildren({children, image}) {
     return(
         <StyledFlex>
             {children}
-            <StyledImage/>
+            <StyledImage image={image}/>
         </StyledFlex>
     )
 }
