@@ -23,4 +23,8 @@ function BackgroundImageWithChildren({children, image}) {
     )
 }
 
+BackgroundImageWithChildren.defaultProps = {
+    image: '/background.png'
+}
+
 export default BackgroundImageWithChildren

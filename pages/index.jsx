@@ -8,7 +8,7 @@ const StyledDiv = styled.div`
 
 export default function HomePage(){
 	return (
-		<BackgroundImageWithChildren image={'/background.png'}>
+		<BackgroundImageWithChildren>
 			<StyledDiv>
 				Pagina Inicial 
 			</StyledDiv>
