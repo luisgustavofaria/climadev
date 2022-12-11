@@ -2,7 +2,7 @@ import styled from "styled-components"
 
 import BackgroundImageWithChildren from "../src/components/layout/backgroundImageWithChildren/BackgroundImageWithChildren"
 import Logo from "../src/components/logo/Logo"
-import InputWithSuggestions from "../src/components/form/inputWithSuggestions/InputWithSuggestions"
+import SearchCity from "../src/components/searchCity/SearchCity"
 
 const StyledDiv = styled.div`
 	background-color: white;
@@ -17,7 +17,7 @@ const StyledDiv = styled.div`
 	}
 `
 
-const StyledInput = styled(InputWithSuggestions)`
+const StyledInput = styled(SearchCity)`
 	width: 100%;
 	box-sizing: border-box;
 `
@@ -36,9 +36,9 @@ export default function HomePage(){
 	return (
 		<BackgroundImageWithChildren>
 			<StyledDiv>
-				<Logo></Logo>
+				<Logo/>
 				<InputContainer>
-					<StyledInput placeholder='Digite o nome da cidade'/>
+					<StyledInput/>
 				</InputContainer>
 			</StyledDiv>
 		</BackgroundImageWithChildren>
