@@ -4,7 +4,7 @@ import styled from "styled-components"
 const ImgLogo = styled.div`
     background-image: url('/woman.svg');
     width: 100%;
-    height: 25vh;
+    height: 40vh;
     background-repeat: no-repeat;
     
 `
