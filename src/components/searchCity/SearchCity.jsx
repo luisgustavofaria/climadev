@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { useRouter } from "next/router";
 
 import InputWithSuggestions from "../form/inputWithSuggestions/InputWithSuggestions";
 
@@ -6,6 +7,7 @@ function SearchCity() {
 
     const [searchCity, setSearchCity] = useState('')
     const [suggestionCity, setsuggestionCity] = useState([])
+    const router = useRouter()
     
     const feachCity = async () => {
         const response = await fetch(`http://api.openweathermap.org/geo/1.0/direct?q=${searchCity}&limit=5&appid=${process.env.NEXT_PUBLIC_OWM_KEY}`)
@@ -17,7 +19,7 @@ function SearchCity() {
         const formatted = list.map((obj) => {
             return {
                 text: `${obj.name}, ${obj.state}, ${obj.country}`,
-                onClick: () => console.log(`LAT: ${obj.lat} LON: ${obj.lon}`)
+                onClick: () => router.push(`info/${obj.lat}/${obj.lon}`)
             }
         })
         setsuggestionCity(formatted)
@@ -25,6 +27,7 @@ function SearchCity() {
     
     useEffect(() => {
         if (searchCity.length > 3) feachCity()
+        else setsuggestionCity([])
         
     }, [searchCity])
 

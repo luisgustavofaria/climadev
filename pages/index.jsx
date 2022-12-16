@@ -36,7 +36,7 @@ export default function HomePage(){
 	return (
 		<BackgroundImageWithChildren>
 			<StyledDiv>
-				<Logo/>
+				<Logo showImage={true} type={'vertical'}/>
 				<InputContainer>
 					<StyledInput/>
 				</InputContainer>
