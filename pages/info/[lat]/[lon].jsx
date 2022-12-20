@@ -45,13 +45,13 @@ function infoPage() {
     const fetchCurrentInfo = async () => {
         const response = await fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${process.env.NEXT_PUBLIC_OWM_KEY}&units=metric&lang=pt_br`)
         const json = await response.json()
-        console.log(json);
+        setCurrentInfo(json)
     }
 
     const fetchFutureInfo = async () => {
         const response = await fetch(`https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&appid=${process.env.NEXT_PUBLIC_OWM_KEY}&units=metric&lang=pt_br`)
         const json = await response.json()
-        console.log(json);
+        setFutureInfo(json)
     }
 
     useEffect(() => {
@@ -68,11 +68,35 @@ function infoPage() {
                 <Container>
                     <Content>
                         <Text>Previsão do tempo para</Text>
-                        <CityName>Vitória, ES, Brasil</CityName>
+                        <CityName>{currentInfo?.name}, {currentInfo?.sys.country}</CityName>
                         <InfoContainer>
-                            <Card/>
-                            <Card/>
-                            <Card/>
+                            <Card 
+                                title={'Agora'}
+                                icon={currentInfo?.weather[0].icon}
+                                info={currentInfo?.weather[0].description}
+                                temp={currentInfo?.main.temp}
+                                sens={currentInfo?.main.feels_like}
+                                min={currentInfo?.main.temp_min}
+                                max={currentInfo?.main.temp_max}
+                            />
+                            <Card 
+                                title="Próximas 3 horas"
+                                icon={futureInfo?.list[0].weather[0].icon}
+                                info={futureInfo?.list[0].weather[0].description}
+                                temp={futureInfo?.list[0].main.temp}
+                                sens={futureInfo?.list[0].main.feels_like}
+                                min={futureInfo?.list[0].main.temp_min}
+                                max={futureInfo?.list[0].main.temp_max}
+                            />
+                            <Card 
+                                title="Próximas 6 horas"
+                                icon={futureInfo?.list[1].weather[0].icon}
+                                info={futureInfo?.list[1].weather[0].description}
+                                temp={futureInfo?.list[1].main.temp}
+                                sens={futureInfo?.list[1].main.feels_like}
+                                min={futureInfo?.list[1].main.temp_min}
+                                max={futureInfo?.list[1].main.temp_max}
+                            />
                         </InfoContainer>
                     </Content>
                 </Container>    
