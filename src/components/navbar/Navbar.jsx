@@ -1,4 +1,5 @@
 import styled from "styled-components"
+import Router, { useRouter } from "next/router"
 
 import Logo from "../logo/Logo"
 import Container from "../layout/container/Container"
@@ -8,12 +9,18 @@ const StyledNavBar = styled.div`
     display: flex;
     align-items: center;
 ` 
+const StyledLogo = styled.div`
+    cursor: pointer;
+`
 
 function Navbar() {
+    const router = useRouter()
     return (
         <StyledNavBar>
             <Container>
-                <Logo type={'horizontal'}/>
+                <StyledLogo onClick={() => router.push('/')}>
+                    <Logo type={'horizontal'}/>
+                </StyledLogo>
             </Container>
         </StyledNavBar>
     )
