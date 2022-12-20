@@ -5,14 +5,15 @@ import Router, { useRouter } from "next/router"
 import Navbar from "../../../src/components/navbar/Navbar"
 import Container from "../../../src/components/layout/container/Container"
 import Card from "../../../src/components/card/Card"
+import Footer from "../../../src/components/footer/Footer"
 
 const Body = styled.div`
     background-color: #EFEFEF;
-    min-height: 100vh;
+    min-height: calc(100vh - 200px);
 `
 
 const Content = styled.div`
-  padding: 80px 0;
+  padding: 20px 0;
 `
 
 const Text = styled.p`
@@ -101,6 +102,7 @@ function infoPage() {
                     </Content>
                 </Container>    
             </Body>
+            <Footer />
         </>
     )
 }
