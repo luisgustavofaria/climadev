@@ -10,7 +10,7 @@ function SearchCity() {
     const router = useRouter()
     
     const feachCity = async () => {
-        const response = await fetch(`http://api.openweathermap.org/geo/1.0/direct?q=${searchCity}&limit=5&appid=${process.env.NEXT_PUBLIC_OWM_KEY}`)
+        const response = await fetch(`https://api.openweathermap.org/geo/1.0/direct?q=${searchCity}&limit=5&appid=${process.env.NEXT_PUBLIC_OWM_KEY}`)
         const jsonCity = await response.json() 
         changeJsonCity(jsonCity);
     }
